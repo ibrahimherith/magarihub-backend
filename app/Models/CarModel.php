@@ -19,4 +19,9 @@ class CarModel extends Model
     {
         return $this->belongsTo(Maker::class);
     }
+
+    public function cars()
+    {
+        return $this->hasMany(Car::class);
+    }
 }

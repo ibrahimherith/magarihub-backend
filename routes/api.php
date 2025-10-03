@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\CarFeatureController;
 use App\Http\Controllers\CarModelController;
@@ -26,3 +27,7 @@ Route::apiResource("cities", CityController::class);
 
 Route::apiResource("makers", MakerController::class);
 Route::apiResource("models", CarModelController::class);
+
+Route::post("/register", [AuthController::class, "register"]);
+Route::post("/login", [AuthController::class, "login"]);
+Route::post("/logout", [AuthController::class, "logout"])->middleware('auth:sanctum');;
